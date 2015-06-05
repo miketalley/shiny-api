@@ -1,0 +1,1 @@
+json.extract! @game, :id, :name, :privacy, :num_players, :player1, :player2, :player3, :player4, :status, :whose_turn, :game_state, :created_at, :updated_at

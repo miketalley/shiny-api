@@ -1,0 +1,63 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Cards</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Level</th>
+      <th>Color</th>
+      <th>Points</th>
+      <th>White</th>
+      <th>Blue</th>
+      <th>Green</th>
+      <th>Red</th>
+      <th>Brown</th>
+      <th>Image</th>
+      <th>Show</th>
+      <th>Edit</th>
+      <th>Destroy</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cards.each do |card| %>
+      <tr>
+        <td>
+          <%= card.level %>
+        </td>
+        <td>
+          <%= card.color %>
+        </td>
+        <td>
+          <%= card.points %>
+        </td>
+        <td>
+          <%= card.cost_white %>
+        </td>
+        <td>
+          <%= card.cost_blue %>
+        </td>
+        <td>
+          <%= card.cost_green %>
+        </td>
+        <td>
+          <%= card.cost_red %>
+        </td>
+        <td>
+          <%= card.cost_brown %>
+        </td>
+        <td>
+          <%= image_tag card.image, height: '90px', width: '60px' %>
+        </td>
+        <td><%= link_to 'Show', card %></td>
+        <td><%= link_to 'Edit', edit_card_path(card) %></td>
+        <td><%= link_to 'Destroy', card, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Card', new_card_path %>

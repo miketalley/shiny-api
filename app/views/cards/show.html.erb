@@ -1,0 +1,80 @@
+<p id="notice"><%= notice %></p>
+	<div class="container">
+	    <div class="row collapse">
+	      	<div class="large-3 columns">
+	      	</div>
+	      	<div class="large-3 columns">
+	      		Level:
+	      	</div>
+	      	<div class="large-9 columns">
+	        	<%= @card.level %>
+	      	</div>
+	    </div>
+	    <div class="row collapse">
+	      	<div class="large-3 columns">
+	      		Color:
+	      	</div>
+	      	<div class="large-9 columns">
+	        	<%= @card.color %>
+	      	</div>
+	    </div>
+	    <div class="row collapse">
+	      	<div class="large-3 columns">
+	      		Points:
+	      	</div>
+	      	<div class="large-9 columns">
+	        	<%= @card.points %>
+	      	</div>
+	    </div>
+	    <div class="row collapse">
+	      	<div class="large-3 columns">
+	      		Cost White:
+	      	</div>
+	      	<div class="large-9 columns">
+	        	<%= @card.cost_white %>
+	      	</div>
+	    </div>
+	    <div class="row collapse">
+	      	<div class="large-3 columns">
+	      		Cost Blue:
+	      	</div>
+	      	<div class="large-9 columns">
+	        	<%= @card.cost_blue %>
+	      	</div>
+	    </div>
+	    <div class="row collapse">
+	      	<div class="large-3 columns">
+	      		Cost Green:
+	      	</div>
+	      	<div class="large-9 columns">
+	        	<%= @card.cost_green %>
+	      	</div>
+	    </div>
+	    <div class="row collapse">
+	      	<div class="large-3 columns">
+	      		Cost Red:
+	      	</div>
+	      	<div class="large-9 columns">
+	        	<%= @card.cost_red %>
+	      	</div>
+	    </div>
+	    <div class="row collapse">
+	      	<div class="large-3 columns">
+	      		Cost Brown:
+	      	</div>
+	      	<div class="large-9 columns">
+	        	<%= @card.cost_brown %>
+	      	</div>
+	    </div>
+	    <div class="row collapse">
+	      	<div class="large-3 columns">
+	      		Image:
+	      	</div>
+	      	<div class="large-9 columns">
+	        	<%= image_tag @card.image, height: '300px', width: '200px' %>
+	      	</div>
+	    </div>
+	</div>
+
+<%= link_to 'Edit', edit_card_path(@card) %> |
+<%= link_to 'Back', cards_path %>

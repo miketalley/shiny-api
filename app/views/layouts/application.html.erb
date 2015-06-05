@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title><%= content_for?(:title) ? yield(:title) : "Splendor API" %></title>
+
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body class="<%= controller_name %> <%= action_name %>">
+    <div class=''>
+      <!-- NAVBAR -->
+      <div id="navbar">
+        <nav class="top-bar" data-topbar="">
+          <ul class="title-area">
+            <li class="name">
+              <h1><%= link_to 'Splendor API', root_path %></h1>
+            </li>
+            <li class="toggle-topbar menu-icon"><a href="#"></a></li>
+          </ul>
+
+
+          <section class="top-bar-section">
+            <ul class="left">
+              <% flash.each do |name, msg| %>
+                <% if msg.is_a?(String) %>
+                  <%= content_tag :div, msg, :class => "flash_#{name}" %>
+                <% end %>
+              <% end %>
+            </ul>
+              <ul class="right">
+                <!-- Games Dropdown -->
+                <li class="has-dropdown not-click">
+                  <a>Game</a>
+                  <ul class="dropdown"><li class="title back js-generated"><h5><a href="javascript:void(0)">Back</a></h5></li>
+                    <li><%= link_to 'New', new_game_path %></li>
+                    <li><%= link_to 'Search', games_path %></li>
+                  </ul>
+                </li>
+                <!-- Cards Dropdown -->
+                <li class="has-dropdown not-click">
+                  <a>Card</a>
+                  <ul class="dropdown"><li class="title back js-generated"><h5><a href="javascript:void(0)">Back</a></h5></li>
+                    <li><%= link_to 'New', new_card_path %></li>
+                    <li><%= link_to 'Search', cards_path %></li>
+                  </ul>
+                </li>
+                <!-- User/Login Dropdown -->
+                <li class="has-dropdown not-click">
+                  <a><% if user_signed_in? %><%= current_user.email %><% else %>User<% end %></a>
+                  <ul class="dropdown"><li class="title back js-generated"><h5><a href="javascript:void(0)">Back</a></h5></li>
+                    <% if user_signed_in? %>
+                      <li><%= link_to 'Edit profile', edit_user_registration_path %></li>
+                      <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+                    <% else %>
+                      <li><%= link_to "Sign up", new_user_registration_path %></li>
+                      <li><%= link_to "Login", new_user_session_path %></li>
+                    <% end %>
+
+                  </ul>
+                </li>
+              </ul>
+            </section>
+          </nav>
+      </div>
+    </div>
+
+    <%= yield %>
+    <%= javascript_include_tag "application" %>
+  </body>
+</html>
